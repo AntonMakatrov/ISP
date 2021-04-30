@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Cars
 {
-    abstract class Car : TransportFacility, IComparable
+    abstract class Car : TransportFacility, IComparable, IActions
     {
         protected int WheelAxle, Wheels;
 

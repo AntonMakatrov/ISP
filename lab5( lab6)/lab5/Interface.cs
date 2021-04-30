@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Cars
 {
-    public interface IElectronicCars
+    public interface IActions
     {
         void FillUpTank(double Fuel);
         void FillUpTank();
         double DrainFuel(double Fuel);
         void ShowInfo();
+        void Move(double distance);
     }
 }
