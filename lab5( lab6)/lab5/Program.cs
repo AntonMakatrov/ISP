@@ -9,70 +9,31 @@ namespace Cars
     {
         static void Main(string[] args)
         {
-            //int Weight, MaxWeight;
-            //int PassengerSeats;
-            //int TankCapacity;
-            //int TrunkVolume;
-            //double FuelFlow;
-            //int MaxSpeed;
+           
+            Lamborgini lamba = new Lamborgini(" Aventador", 1550, 2300, 2, 80, 14, 270);
+            Tesla tesla = new Tesla(" Model X", 2400, 3300, 5, 100000, 1500, 250);
+            McLaren mac = new McLaren(" 720s", 1350, 2100, 2, 80, 12, 340);
             
-            
-            //do
-            //{
-            //    Console.WriteLine("Введите вес автомобиля : ");
-            //    tmp = Console.ReadLine();
-            //} while (!int.TryParse(tmp, out Weight));
-
-            //do
-            //{
-            //    Console.WriteLine("Введите грузоподъемность автомобиля : ");
-            //    tmp = Console.ReadLine();
-            //} while (!int.TryParse(tmp, out MaxWeight));
-
-            //MaxWeight += Weight;
-
-            //do
-            //{
-            //    Console.WriteLine("Введите кол-во пассажирских мест в автомобиле : ");
-            //    tmp = Console.ReadLine();
-            //} while (!int.TryParse(tmp, out PassengerSeats));
-
-            //do
-            //{
-            //    Console.WriteLine("Введите объем бака автомобиля : ");
-            //    tmp = Console.ReadLine();
-            //} while (!int.TryParse(tmp, out TankCapacity));
-        
-            //do
-            //{
-            //    Console.WriteLine("Введите расход топлива на 100 километров : ");
-            //    tmp = Console.ReadLine();
-            //} while (!double.TryParse(tmp, out FuelFlow));
-
-            //do
-            //{
-            //    Console.WriteLine("Введите максимальную скорость автомобиля : ");
-            //    tmp = Console.ReadLine();
-            //} while (!int.TryParse(tmp, out MaxSpeed));
+            List<Car> p = new List<Car>() {  lamba, tesla, mac };
+            Console.WriteLine("До сортировки:");
+            foreach (Car i in p)
+            {
+                i.ShortInfo();
+            }
+            p.Sort();
+            Console.WriteLine("Отсортировано по возрастанию скорости:");
+            foreach (Car i in p)
+            {
+                i.ShortInfo();
+            }
+  
             string tmp;
+
             Cars cars = new Cars(3);
             cars[0] = new Lamborgini(" Aventador", 1550, 2300, 2, 80,  14, 270);
             cars[1] = new Tesla(" Model X", 2400, 3300, 5, 100000, 1500, 250);
             cars[2] = new McLaren(" 720s", 1350, 2100, 2, 80, 12, 340);
-            ArrayList CarList = new ArrayList
-            {
-                cars[0],
-                cars[1],
-                cars[2]
-            };
             
-            CarList.Sort();
-            Console.WriteLine("Отсортировано по возрастанию скорости:");
-            foreach (Car i in CarList)
-            {
-                Console.WriteLine(" " + i);
-
-            }
             int car = 0;
             while (car < 1 || car > 3)
             {

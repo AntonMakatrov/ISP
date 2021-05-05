@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Cars
 {
-    abstract class Car : TransportFacility, IComparable, IActions
+    abstract class Car : TransportFacility, IComparable<Car>, IActions
     {
         protected int WheelAxle, Wheels;
 
@@ -122,12 +122,12 @@ namespace Cars
                 return MaxDistance;
             }
         }
-        public int CompareTo(object o)
+        public int CompareTo(Car o)
         {
-            Car car = (Car)o;
-            if (car != null)
+            
+            if (o != null)
             {
-                return MaxSpeed.CompareTo(car.MaxSpeed);
+                return MaxSpeed.CompareTo(o.MaxSpeed);
             }
             throw new Exception("Cannot compare two cars");
         }
@@ -141,6 +141,11 @@ namespace Cars
                 "Кол-во пассажирских мест : {5}\n" +
                 "Идентификационный номер : {6}\n" +
                 "Название автомобиля : {7}", TankCapacity, FuelFlow,  Weight / 1000.0, MaxWeight - Weight, MaxSpeed, PassengerSeats, IdentificationNumber, Brand + Model);
+        }
+        public virtual void ShortInfo()
+        {
+            Console.WriteLine("Авто: {0} {1}\n" +
+                "Максимальная скорость: {2} км/ч\n", Brand, Model, MaxSpeed);
         }
     }
 }
